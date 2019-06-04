@@ -1,4 +1,4 @@
-import plotnine
+from plotnine import *
 from kmeans import KMeans
 from test import rand_point
 import pandas as pd
@@ -11,8 +11,10 @@ if __name__ == "__main__":
 
     predictions = kmeans.predict(points)
 
-    pd.DataFrame(points)
-    pd["classification"] = predictions
+    table = pd.DataFrame(points)
+    table["classification"] = predictions
+    print(table)
     centroids = kmeans.centroids
 
-    plotnine
+    plot = ggplot(aes(x=0, y=1)) + geom_point(aes(color="factor(classification)"))
+    plot.save(filename="test3.png", height=5, width=5, units="in", dpi=1000)
