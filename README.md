@@ -7,3 +7,17 @@ Given a set of two dimensional points `P (e.g. [(1.1, 2.5), (3.4,1.9)...]`; the 
 
 Although you can write this in any language, we would recommend for you to use **python**. Please feel free to research and look up any information you need, but please note plagiarism will not be tolerated.
 You may spend as much time as needed, but as a frame of reference, an hour would be the maximum time frame. If more time is required, please send over the intermediate code at the one hour mark. You may start the assignment whenever you are ready. Once you have completed this task, get back to us along with the code and how long it took you.
+
+
+
+## Solution
+
+1. The solution implemented works for n-dimensional clusters.
+2. It implements a class Kmeans, that only has the `fit`, `fit_predict` and `predict` methods that the sklearn class considers
+3. The file `test.py` tests that
+4. After one hour, I had some issues with using ggplot (plotnine) to output a plot, I think it is based on column names succintness, but since the hour has passed I gave up.
+
+
+Thank you for the opportunity,
+
+Alejandro
