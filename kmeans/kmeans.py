@@ -2,6 +2,7 @@
 from typing import Tuple, Set, List, Dict
 from collections import defaultdict, Counter
 from random import shuffle
+from operator import itemgetter
 
 
 # We assume no libraries outside of the standard library due to the statement in the problem
@@ -20,9 +21,10 @@ def kernel(p1: Point, p2: Point) -> float:
 
 def get_center(points: Cluster) -> Point:
     points_it = iter(points)
-    sum_points = list(next(points_it))
-    if sum_points is None:
+    point = next(points_it)
+    if point is None:
         raise TypeError("Empty list given to get_center")
+    sum_points = list(point)
 
     npoints = len(points)
     # TODO: Use reduce/functools to put this part in C-code
@@ -57,7 +59,7 @@ def closest_centroid_idx(centroids: Centroids, point: Point) -> int:
 
 
 def classify(centroids: Centroids, points: Cluster) -> Dict[int, Cluster]:
-    """classify We assume the centroids are ordered
+    """Classify the points based on the centroids and return a dictionary gathering the points
     
     Arguments:
         centroids {Centroids} -- [description]
@@ -96,9 +98,6 @@ def is_same_grouping(
             return False
 
     return True
-
-
-from operator import itemgetter
 
 
 def get_centroids(classification: Dict[int, Cluster]) -> Centroids:
