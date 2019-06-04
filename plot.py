@@ -4,17 +4,12 @@ from test import rand_point
 import pandas as pd
 
 if __name__ == "__main__":
-
     points = [rand_point(2) for _ in range(200)]
-
-    kmeans = KMeans(3).fit(points)
-
+    kmeans = KMeans(9).fit(points)
     predictions = kmeans.predict(points)
-
     table = pd.DataFrame(points)
-    table["classification"] = predictions
-    print(table)
+    table["tag"] = predictions
+    table.rename(columns={table.columns[0]: "x", table.columns[1]: "y"}, inplace=True)
     centroids = kmeans.centroids
-
-    plot = ggplot(aes(x=0, y=1)) + geom_point(aes(color="factor(classification)"))
-    plot.save(filename="test3.png", height=5, width=5, units="in", dpi=1000)
+    plot = ggplot(aes(x="x", y="y"), table) + geom_point(aes(color="factor(tag)"))
+    plot.save(filename="plot.png", height=5, width=5, units="in", dpi=300)

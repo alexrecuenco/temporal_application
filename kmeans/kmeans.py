@@ -72,6 +72,7 @@ def classify(centroids: Centroids, points: Cluster) -> Dict[int, Cluster]:
     classification: Dict[int, Cluster] = defaultdict(list)
 
     for point in points:
+        # FIXME: We can get rid of one of the centroids if there are on items close to it.
         idx = closest_centroid_idx(centroids, point=point)
         classification[idx].append(point)
 
