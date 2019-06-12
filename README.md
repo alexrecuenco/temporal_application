@@ -17,6 +17,35 @@ You may spend as much time as needed, but as a frame of reference, an hour would
 3. The file `test.py` tests that
 4. After one hour, I had some issues with using ggplot (plotnine) to output a plot, I think it is based on column names succintness, but since the hour has passed I gave up.
 
+## Scripts
+
+It requires python 3.6 or above.
+
+Both scripts don't have input arguments due to time constraints, but at the start of them they have a few variables that can be modified, `N_CLUSTER` `N_POINTS` `N_DIMENS` .
+
+
+
+### KMeans
+
+The main test to see "on the surface" if it seems to work.
+
+```bash
+    python test.py 
+```
+### Plotting
+
+The requirements are given in the requirements.txt
+
+```bash
+    pip3 install -r requirements.txt
+    python plot.py
+```
+
+This will output a png image called `plot.png`
+
+
+
+## Thanks
 
 Thank you for the opportunity,
 

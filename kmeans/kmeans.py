@@ -72,7 +72,9 @@ def classify(centroids: Centroids, points: Cluster) -> Dict[int, Cluster]:
     classification: Dict[int, Cluster] = defaultdict(list)
 
     for point in points:
-        # FIXME: We can get rid of one of the centroids if there are on items close to it.
+        # FIXME: We are getting rid of one of the centroids if there are on items closer to it.
+        # Should we add one point back at random? Or just emit a warning.
+        # (Adding a point back will affect the quality of the clustering.)
         idx = closest_centroid_idx(centroids, point=point)
         classification[idx].append(point)
 
